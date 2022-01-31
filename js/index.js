@@ -1,6 +1,9 @@
 /**
  * TODO:
  * Word array 3 ord med olika längd
+ * en text-input för varje bokstav i ordet
+ * vid rätt bokstav - (blinka grönt) gå vidare till nästa input
+ * vid fel bokstav - (blinka rött) infoga bildanimering och töm input
  * svg array, för varje fel bokstav så visas index 0 till 4
  * Input med tangentbord, bara gissa på en bokstav i taget
  * "Du vann" overlay
@@ -20,3 +23,4 @@
  document.querySelector('figure').classList.add('legs')
 
  */
+
