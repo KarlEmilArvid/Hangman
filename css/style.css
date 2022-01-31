@@ -14,14 +14,27 @@ body {
 
 .letters {
     font-family: 'Eater', cursive;
-    font-size: 3em;
-    letter-spacing: 8px;
+    font-size: 2em;
+    /* letter-spacing: 8px; */
     color: #fa6701;
     animation: flicker 5s linear infinite;
+    /*added by Felix*/
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    background: rgb(124, 112, 112);
+    
 }
 
-.letter-input {
+.input-container {
     width: fit-content;
+    height: fit-content;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    gap: .5rem;
 }
 
 .wrapper {
@@ -36,7 +49,7 @@ body {
     opacity: 0;
 }
 
-.wrapper figure svg #ground             { opacity: 1; }
+.wrapper figure          svg #ground    { opacity: 1; }
 .wrapper figure.scaffold svg #scaffold  { opacity: 1; }
 .wrapper figure.head     svg #head      { opacity: 1; }
 .wrapper figure.body     svg #body      { opacity: 1; }
