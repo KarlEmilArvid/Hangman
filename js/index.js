@@ -24,6 +24,12 @@
 
  */
 
+
+
+const letters = document.getElementById('letters');
+
+
+
 const wordArray = ['dog', 'apple', 'laptop']
 
 let correctWord = '';
@@ -35,8 +41,17 @@ let correctWord = '';
 function randomWord() {
     let random = Math.floor(Math.random() * wordArray.length);
     correctWord = wordArray[random];
-    //generateInputText();
+    generateInputText();
     console.log(correctWord);
+}
+
+function generateInputText() {
+    const generateInputField = correctWord.length;
+    for (let i = 0; i < generateInputField; i++) {
+        const listItem = document.createElement('li');
+        listItem.classList.add('letter');
+        letters.append(listItem);
+    }
 }
 
 randomWord();
