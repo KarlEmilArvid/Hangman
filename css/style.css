@@ -12,7 +12,7 @@ body {
     background-color: #7349AC;
 }
 
-.letters {
+.letter {
     font-family: 'Eater', cursive;
     font-size: 2em;
     /* letter-spacing: 8px; */
@@ -25,10 +25,10 @@ body {
     border: none;
     border-radius: 15px;
     background: rgb(124, 112, 112);
-    
+    list-style-type: none;
 }
 
-.input-container {
+.letters {
     width: fit-content;
     height: fit-content;
     position: fixed;
