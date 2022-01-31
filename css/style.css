@@ -20,6 +20,10 @@ body {
     animation: flicker 5s linear infinite;
 }
 
+.letter-input {
+    width: fit-content;
+}
+
 .wrapper {
     max-width: 1000px;
     display: flex;
