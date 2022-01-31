@@ -24,3 +24,19 @@
 
  */
 
+const wordArray = ['dog', 'apple', 'laptop']
+
+let correctWord = '';
+ 
+
+ 
+
+ 
+function randomWord() {
+    let random = Math.floor(Math.random() * wordArray.length);
+    correctWord = wordArray[random];
+    //generateInputText();
+    console.log(correctWord);
+}
+
+randomWord();
