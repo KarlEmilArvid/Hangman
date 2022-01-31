@@ -51,6 +51,7 @@ function generateInputText() {
     for (let i = 0; i < generateInputField; i++) {
         const listItem = document.createElement('li');
         listItem.classList.add('letter');
+        listItem.innerHTML = `<li><input type="text"></li>`;
         letters.append(listItem);
     }
 }
