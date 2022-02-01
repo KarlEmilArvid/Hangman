@@ -51,7 +51,7 @@ function closeWin() {
     overlayWin.classList.toggle('show-win')
 }
 function closeLose() {
-    overlayWin.classList.toggle('show-lose');
+    overlayLose.classList.toggle('show-lose');
 }
 
 alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
