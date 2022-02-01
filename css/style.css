@@ -2,6 +2,7 @@
 
 *  {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
@@ -9,16 +10,22 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    background-color: #7349AC;
+    background-color: #f7f4fc;
 }
 
-.letters {
+.section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/**.letters {
     font-family: 'Eater', cursive;
     font-size: 2em;
-    /* letter-spacing: 8px; */
+    letter-spacing: 8px;
     color: #fa6701;
     animation: flicker 5s linear infinite;
-    /*added by Felix*/
+    /*added by Felix*//*
     width: 2em;
     height: 2em;
     text-align: center;
@@ -35,7 +42,7 @@ body {
     bottom: 0;
     display: flex;
     gap: .5rem;
-}
+}*/
 
 .wrapper {
     max-width: 1000px;
@@ -57,7 +64,7 @@ body {
 .wrapper figure.legs     svg #legs      { opacity: 1; }
 
 
-@keyframes flicker {
+/*@keyframes flicker {
 	0%, 10%, 20% {
 		text-shadow: none;
         color: #fa6701;
@@ -66,7 +73,7 @@ body {
 		text-shadow: 0 0 8px rgba(#fa6701,0.6);
         color: #111111;
 	}
-}
+}*/
 
 
 @media only screen and (max-width: 600px) {
