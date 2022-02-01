@@ -28,7 +28,7 @@ body {
     list-style-type: none;
 }
 
-.letters {
+.input-container {
     width: fit-content;
     height: fit-content;
     position: fixed;
