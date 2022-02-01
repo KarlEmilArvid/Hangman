@@ -107,15 +107,15 @@ body {
     align-items: center;
     justify-content: center;
     transition-delay: 1000ms;
-    z-index: 1;
+    
  }
  
- .overlay-win h1, .overlay-lose h1 {
+ .overlay-win h2, .overlay-lose h2 {
     font-size: 48px;
     color: #ffffff;
  }
  
- .overlay-win .close, .overlay-lose .close {
+ .overlay-win .close-win, .overlay-lose .close-lose{
     position: absolute;
     top: 0;
     right: 0;

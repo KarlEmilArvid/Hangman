@@ -33,25 +33,32 @@ let pastLetters = [];
 let lettersReset = '';
 let i;
 let guessesLeft = 5;
+document.getElementById("guesses-remain").innerHTML = guessesLeft;
 
 
-const wordArray = ['dog', 'apple', 'laptop'];
+const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
 const playAgainBtn = document.querySelector('.win-reset-button');
 const rematchBtn = document.querySelector('.lose-reset-button');
-const closeOverlay = document.querySelector('.close')
+const closeOverlayWin = document.querySelector('.close-win');
+const closeOverlayLose = document.querySelector('.close-lose');
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
 let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på input fält
 
 //BUTONS
-playAgainBtn.addEventListener('click', () => {playAgain()});
+playAgainBtn.addEventListener('click', () => {location.reload()});
+rematchBtn.addEventListener('click', () => {location.reload()})
+closeOverlayWin.addEventListener('click', ()=> closeWin());
+closeOverlayLose.addEventListener('click', ()=> closeLose());
 
-
-function playAgain() {
-    overlayWin.classList.toggle('.show-win')
+function closeWin() {
+    overlayWin.classList.toggle('show-win')
+}
+function closeLose() {
+    overlayWin.classList.toggle('show-lose');
 }
 
 alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
@@ -59,10 +66,6 @@ alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
       alwaysFocusedInput.focus();
     }, 0);
   });
-
-
-document.getElementById("guesses-remain").innerHTML = guessesLeft;
-
 
 
 for (i = 0; i < correctAnswer.length; i++) {
@@ -116,6 +119,7 @@ document.querySelector('input').addEventListener('keydown', (event) => {
 
     if (lettersToGuess() == 0) {
         overlayWin.classList.toggle('show-win');
+        
         guessesLeft = 5;
         document.getElementById("guesses-remain").innerHTML = guessesLeft;
 
