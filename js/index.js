@@ -71,7 +71,7 @@ function lettersToGuess() {
   return toGuess;
 }
 
-document.onkeyup = function(event) {
+document.onkeyup = () => {
   if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode >= 97 && event.keyCode <= 122) {
     let letter = event.key.toLowerCase();
     let lettersGuessed = letter;
