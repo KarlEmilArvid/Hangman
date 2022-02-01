@@ -39,8 +39,7 @@ document.getElementById("guesses-remain").innerHTML = guessesLeft;
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
-const playAgainBtn = document.querySelector('.win-reset-button');
-const rematchBtn = document.querySelector('.lose-reset-button');
+const playAgainBtn = document.querySelector('.reset-button');
 const closeOverlayWin = document.querySelector('.close-win');
 const closeOverlayLose = document.querySelector('.close-lose');
 
@@ -50,7 +49,6 @@ let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på i
 
 //BUTONS
 playAgainBtn.addEventListener('click', () => {location.reload()});
-rematchBtn.addEventListener('click', () => {location.reload()})
 closeOverlayWin.addEventListener('click', ()=> closeWin());
 closeOverlayLose.addEventListener('click', ()=> closeLose());
 
@@ -119,38 +117,11 @@ document.querySelector('input').addEventListener('keydown', (event) => {
 
     if (lettersToGuess() == 0) {
         overlayWin.classList.toggle('show-win');
-        
-        guessesLeft = 5;
-        document.getElementById("guesses-remain").innerHTML = guessesLeft;
-
-        document.getElementById("letters-guessed").innerHTML = lettersReset;
-
-        correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
-
-        currentWord = [];
-        pastLetters = [];
-        for (i = 0; i < correctAnswer.length; i++) {
-            currentWord.push("_");
-        }
-        document.getElementById("active-word").innerHTML = currentWord.join(" ");
     }
 
     //YOU LOSE OVERLAY
     if (guessesLeft === 0) {
         overlayLose.classList.toggle('show-lose');
-      guessesLeft = 5;
-      document.getElementById("guesses-remain").innerHTML = guessesLeft;
-
-      document.getElementById("letters-guessed").innerHTML = lettersReset;
-
-      correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
-
-      currentWord = [];
-      pastLetters = [];
-      for (i = 0; i < correctAnswer.length; i++) {
-        currentWord.push("_");
-      }
-      document.getElementById("active-word").innerHTML = currentWord.join(" ");
     }
   }
 });
