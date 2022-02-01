@@ -51,6 +51,7 @@ for (i = 0; i < correctAnswer.length; i++) {
 }
 document.getElementById("active-word").innerHTML = currentWord.join(" ");
 
+
 function wordLetters(letter) {
   let letterPosition = new Array();
   for (i = 0; i < correctAnswer.length; i++) {
