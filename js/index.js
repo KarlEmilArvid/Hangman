@@ -1,14 +1,9 @@
 /**
  * TODO:
-
- * en text-input för varje bokstav i ordet
- * vid rätt bokstav - (blinka grönt) gå vidare till nästa input
- * vid fel bokstav - (blinka rött) infoga bildanimering och töm input
+ * 
  * uppdatera figur svg array, för varje fel bokstav så visas index 0 till 4
  * Input med tangentbord, bara gissa på en bokstav i taget
- * "Du vann" overlay
- * "Du förlorade" overlay
- 
+ * Gömma input fält
  * 
  * 
  * Nedräkning på 1 min
