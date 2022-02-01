@@ -36,11 +36,23 @@ let guessesLeft = 5;
 
 
 const wordArray = ['dog', 'apple', 'laptop'];
-
+const overlayWin = document.querySelector('.overlay-win');
+const overlayLose = document.querySelector('.overlay-lose');
+const playAgainBtn = document.querySelector('.win-reset-button');
+const rematchBtn = document.querySelector('.lose-reset-button');
+const closeOverlay = document.querySelector('.close')
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
 let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på input fält
+
+//BUTONS
+playAgainBtn.addEventListener('click', () => {playAgain()});
+
+
+function playAgain() {
+    overlayWin.classList.toggle('.show-win')
+}
 
 alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
     setTimeout(() => {
@@ -60,7 +72,7 @@ document.getElementById("active-word").innerHTML = currentWord.join(" ");
 
 
 function wordLetters(letter) {
-  let letterPosition = new Array();
+  let letterPosition = [];
   for (i = 0; i < correctAnswer.length; i++) {
     if (correctAnswer[i] === letter)
       letterPosition.push(i);
@@ -100,24 +112,28 @@ document.querySelector('input').addEventListener('keydown', (event) => {
     }
 
     // YOU WIN OVERLAY
+
+
     if (lettersToGuess() == 0) {
-      guessesLeft = 5;
-      document.getElementById("guesses-remain").innerHTML = guessesLeft;
+        overlayWin.classList.toggle('show-win');
+        guessesLeft = 5;
+        document.getElementById("guesses-remain").innerHTML = guessesLeft;
 
-      document.getElementById("letters-guessed").innerHTML = lettersReset;
+        document.getElementById("letters-guessed").innerHTML = lettersReset;
 
-      correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
+        correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
-      currentWord = [];
-      pastLetters = [];
-      for (i = 0; i < correctAnswer.length; i++) {
-        currentWord.push("_");
-      }
-      document.getElementById("active-word").innerHTML = currentWord.join(" ");
+        currentWord = [];
+        pastLetters = [];
+        for (i = 0; i < correctAnswer.length; i++) {
+            currentWord.push("_");
+        }
+        document.getElementById("active-word").innerHTML = currentWord.join(" ");
     }
 
     //YOU LOSE OVERLAY
     if (guessesLeft === 0) {
+        overlayLose.classList.toggle('show-lose');
       guessesLeft = 5;
       document.getElementById("guesses-remain").innerHTML = guessesLeft;
 
