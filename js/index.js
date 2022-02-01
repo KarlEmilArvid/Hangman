@@ -40,6 +40,13 @@ const wordArray = ['dog', 'apple', 'laptop'];
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
+let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på input fält
+
+alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
+    setTimeout(() => {
+      alwaysFocusedInput.focus();
+    }, 0);
+  });
 
 
 document.getElementById("guesses-remain").innerHTML = guessesLeft;
@@ -71,8 +78,8 @@ function lettersToGuess() {
   return toGuess;
 }
 
-document.onkeyup = () => {
-  if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode >= 97 && event.keyCode <= 122) {
+document.querySelector('input').addEventListener('keydown', (event) => {
+  if (event.key >= 'a' && event.key <= 'z') {
     let letter = event.key.toLowerCase();
     let lettersGuessed = letter;
     let i;
@@ -126,4 +133,4 @@ document.onkeyup = () => {
       document.getElementById("active-word").innerHTML = currentWord.join(" ");
     }
   }
-}
+});

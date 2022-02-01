@@ -19,6 +19,10 @@ body {
     flex-direction: column;
 }
 
+/*.inputField {
+    display: none;
+}
+
 /**.letters {
     font-family: 'Eater', cursive;
     font-size: 2em;
