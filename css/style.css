@@ -2,6 +2,7 @@
 
 *  {
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
@@ -9,32 +10,13 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center;
-    background-color: #7349AC;
+    background-color: #f7f4fc;
 }
 
-.letter {
-    font-family: 'Eater', cursive;
-    font-size: 2em;
-    /* letter-spacing: 8px; */
-    color: #fa6701;
-    animation: flicker 5s linear infinite;
-    /*added by Felix*/
-    width: 2em;
-    height: 2em;
-    text-align: center;
-    border: none;
-    border-radius: 15px;
-    background: rgb(124, 112, 112);
-    list-style-type: none;
-}
-
-.input-container {
-    width: fit-content;
-    height: fit-content;
-    position: fixed;
-    bottom: 0;
+.section {
     display: flex;
-    gap: .5rem;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .wrapper {
@@ -42,8 +24,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
+
 
 .wrapper figure svg > * {
     opacity: 0;
@@ -55,19 +38,6 @@ body {
 .wrapper figure.body     svg #body      { opacity: 1; }
 .wrapper figure.arms     svg #arms      { opacity: 1; }
 .wrapper figure.legs     svg #legs      { opacity: 1; }
-
-
-@keyframes flicker {
-	0%, 10%, 20% {
-		text-shadow: none;
-        color: #fa6701;
-	}
-	5%, 15% {
-		text-shadow: 0 0 8px rgba(#fa6701,0.6);
-        color: #111111;
-	}
-}
-
 
 @media only screen and (max-width: 600px) {
     body {
@@ -82,3 +52,46 @@ body {
 
 @media only screen and (max-width: 768px) {
 }
+
+.overlay-win, .overlay-lose {
+    margin: 0;
+    position: fixed;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-delay: 1000ms;
+    
+ }
+ 
+ .overlay-win h2, .overlay-lose h2 {
+    font-size: 48px;
+    color: #ffffff;
+ }
+ 
+ .overlay-win .close-win, .overlay-lose .close-lose{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 32px;
+ }
+
+ .win-reset-button, .lose-reset-button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    background-color: purple;
+    cursor: pointer;
+ }
+ 
+ .show-win, .show-lose {
+     display: flex;
+ }
