@@ -93,9 +93,9 @@ body {
  }
  
  .show-win, .show-lose {
-     display: flex;
+    display: flex;
  }
 
  .inputField {
-     opacity: 0;
+    opacity: 0;
  }
