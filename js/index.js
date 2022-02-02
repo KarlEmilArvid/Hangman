@@ -20,7 +20,6 @@ let pastLetters = [];
 let lettersReset = '';
 let i;
 let guessesLeft = 5;
-document.getElementById('guesses-remain').innerHTML = guessesLeft;
 
 
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
@@ -100,7 +99,6 @@ document.querySelector('input').addEventListener('keydown', (event) => {
             pastLetters.push(letter);
             document.getElementById("letters-guessed").innerHTML += lettersGuessed + " ";
             guessesLeft--;
-            document.getElementById("guesses-remain").innerHTML = guessesLeft;
             }
     //YOU WIN
     if (lettersToGuess() == 0) {
