@@ -1,8 +1,6 @@
 /**
  * TODO:
- * 
- * uppdatera figur svg array, för varje fel bokstav så visas index 0 till 4
- * Input med tangentbord, bara gissa på en bokstav i taget
+ *
  * Gömma input fält
  * 
  * 
@@ -56,7 +54,7 @@ alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
 for (i = 0; i < correctAnswer.length; i++) {
   currentWord.push('_');
 }
-document.getElementById('active-word').innerHTML = currentWord.join(" ");
+document.getElementById('active-word').innerHTML = currentWord.join(' ');
 
 
 function wordLetters(letter) {

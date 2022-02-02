@@ -95,3 +95,7 @@ body {
  .show-win, .show-lose {
      display: flex;
  }
+
+ .inputField {
+     opacity: 0;
+ }
