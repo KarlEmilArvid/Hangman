@@ -7,7 +7,7 @@
  * 
  * 
  * Nedräkning på 1 min
- */
+*/
 
 
 /**
@@ -19,8 +19,6 @@
  document.querySelector('figure').classList.add('legs')
 
 */
-
-
 
 let currentWord = [];
 let answerWord = [];
@@ -41,7 +39,7 @@ let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
 let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på input fält
 
-//BUTONS
+//BUTTONS
 resetLoseBtn.addEventListener('click', () => {location.reload()});
 resetWinBtn.addEventListener('click', () => {location.reload()});
 
@@ -62,7 +60,7 @@ alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
 for (i = 0; i < correctAnswer.length; i++) {
   currentWord.push('_');
 }
-document.getElementById('active-word').innerHTML = currentWord.join(" ");
+document.getElementById('active-word').innerHTML = currentWord.join(' ');
 
 
 function wordLetters(letter) {
@@ -106,8 +104,6 @@ document.querySelector('input').addEventListener('keydown', (event) => {
     }
 
     // YOU WIN OVERLAY
-
-
     if (lettersToGuess() == 0) {
         overlayWin.classList.toggle('show-win');
     }
