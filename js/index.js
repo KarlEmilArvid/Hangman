@@ -1,9 +1,8 @@
 /**
  * TODO:
  *
- *
- * 
- * 
+ * När guesses left === 0, stäng av keyboard event
+ * När lettersToGuess() == 0, stäng av keyboard event
  * Nedräkning på 1 min
  */
 
@@ -29,27 +28,19 @@ let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 let alwaysFocusedInput = document.getElementById('activeFocus'); //Fokus på input fält
 
 //BUTONS
-// playAgainBtn.addEventListener('click', () => {location.reload()});
-// rematchBtn.addEventListener('click', () => {location.reload()});
-
 playAgainBtn.addEventListener('click', () => {location.reload()});
 rematchBtn.addEventListener('click', () => {location.reload()});
 closeOverlayWin.addEventListener('click', ()=> closeWin());
 closeOverlayLose.addEventListener('click', ()=> closeLose());
-
-function closeWin() {
-    overlayWin.classList.toggle('show-win')
-}
-function closeLose() {
-    overlayLose.classList.toggle('show-lose');
-}
+//OVERLAY
+function closeWin() { overlayWin.classList.toggle('show-win'); }
+function closeLose() { overlayLose.classList.toggle('show-lose'); }
 
 alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
     setTimeout(() => {
       alwaysFocusedInput.focus();
     }, 0);
   });
-
 
 for (i = 0; i < correctAnswer.length; i++) {
   currentWord.push('_');
@@ -95,24 +86,12 @@ document.querySelector('input').addEventListener('keydown', (event) => {
             guessesLeft--;
             }
     //YOU WIN
-    if (lettersToGuess() == 0) {
-        overlayWin.classList.toggle('show-win');
-    }
+    if (lettersToGuess() == 0) { overlayWin.classList.toggle('show-win'); }
+
     //YOU LOSE
-    if (guessesLeft == 4) {
-        document.querySelector('figure').classList.add('scaffold');
-    }
-    if (guessesLeft == 3) {
-        document.querySelector('figure').classList.add('head');
-    }
-    if (guessesLeft == 2) {
-        document.querySelector('figure').classList.add('arms');
-    }
-    if (guessesLeft == 1) {
-        document.querySelector('figure').classList.add('legs');
-    }
-    if (guessesLeft === 0) {
-        overlayLose.classList.toggle('show-lose');
-    }
-}
-});
+    if (guessesLeft == 4) { document.querySelector('figure').classList.add('scaffold'); }
+    if (guessesLeft == 3) { document.querySelector('figure').classList.add('head'); }
+    if (guessesLeft == 2) { document.querySelector('figure').classList.add('body'); }
+    if (guessesLeft == 1) { document.querySelector('figure').classList.add('arms'); }
+    if (guessesLeft === 0) { document.querySelector('figure').classList.add('legs'); overlayLose.classList.toggle('show-lose'); }
+}});
