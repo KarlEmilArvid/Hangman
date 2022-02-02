@@ -1,8 +1,8 @@
 /**
  * TODO:
  * 
- * uppdatera figur svg array, för varje fel bokstav så visas index 0 till 4
- * Input med tangentbord, bara gissa på en bokstav i taget
+ * Uppdatera figur svg array, för varje fel bokstav så visas index 0 till 4
+ *
  * Gömma input fält
  * 
  * 
@@ -36,8 +36,6 @@ const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
 const resetWinBtn = document.querySelector('.reset-button-win');
 const resetLoseBtn = document.querySelector('.reset-button-lose');
-const closeOverlayWin = document.querySelector('.close-win');
-const closeOverlayLose = document.querySelector('.close-lose');
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
@@ -46,9 +44,6 @@ let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på i
 //BUTONS
 resetLoseBtn.addEventListener('click', () => {location.reload()});
 resetWinBtn.addEventListener('click', () => {location.reload()});
-
-closeOverlayWin.addEventListener('click', ()=> closeWin());
-closeOverlayLose.addEventListener('click', ()=> closeLose());
 
 function closeWin() {
     overlayWin.classList.toggle('show-win')
