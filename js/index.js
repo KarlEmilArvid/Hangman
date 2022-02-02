@@ -86,12 +86,12 @@ document.querySelector('input').addEventListener('keydown', (event) => {
             guessesLeft--;
             }
     //YOU WIN
-    if (lettersToGuess() == 0) { overlayWin.classList.toggle('show-win'); }
+    if (lettersToGuess() == 0) { overlayWin.classList.toggle('show-win'); document.querySelector('input').disabled = true; }
 
     //YOU LOSE
     if (guessesLeft == 4) { document.querySelector('figure').classList.add('scaffold'); }
     if (guessesLeft == 3) { document.querySelector('figure').classList.add('head'); }
     if (guessesLeft == 2) { document.querySelector('figure').classList.add('body'); }
     if (guessesLeft == 1) { document.querySelector('figure').classList.add('arms'); }
-    if (guessesLeft === 0) { document.querySelector('figure').classList.add('legs'); overlayLose.classList.toggle('show-lose'); }
+    if (guessesLeft === 0) { document.querySelector('figure').classList.add('legs'); overlayLose.classList.toggle('show-lose'); document.querySelector('input').disabled = true; }
 }});
