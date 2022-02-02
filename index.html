@@ -20,24 +20,18 @@
         </figure>
         <section class="section">
             <p>Current Word: </p><br />
-            <input autofocus id="activeFocus" class="inputField"><span id="active-word"></span></input>
-            
+            <input autofocus autocomplete="off" id="activeFocus" class="inputField"><span id="active-word"></span></input>
             <p>Letters guessed: </p><br />
-            <p><span id="letters-guessed"></span></p>
-            
-            <p>Letters already Guessed: </p><br />
             <p><span id="letters-guessed"></span></p>
         </section>
 
         <section class="overlay-win">
-            <a href="#" class="close-win">X</a>
-            <h2>You won!</h2>
+            <h2 class="header">You won!</h2>
             <button class="play-again">Play again?</button>
         </section>
         
         <section class="overlay-lose">
-            <a href="#" class="close-lose">X</a>
-            <h2>You lose!</h2>
+            <h2 class="header">You lose!</h2>
             <button class="rematch">Rematch?</button>
         </section>
     </main>

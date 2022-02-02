@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Eater&display=swap');
 
-*  {
+* {
     box-sizing: border-box;
     margin: 0;
 }
@@ -24,9 +24,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-wrap: wrap; */
 }
-
 
 .wrapper figure svg > * {
     opacity: 0;
@@ -38,6 +36,42 @@ body {
 .wrapper figure.body     svg #body      { opacity: 1; }
 .wrapper figure.arms     svg #arms      { opacity: 1; }
 .wrapper figure.legs     svg #legs      { opacity: 1; }
+
+.overlay-win, .overlay-lose {
+    margin: 0;
+    position: fixed;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-delay: 1000ms;
+}
+
+.header {
+    font-size: 48px;
+    color: #ffffff;
+}
+
+.play-again, .rematch {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    background-color: purple;
+    cursor: pointer;
+}
+
+.show-win, .show-lose {
+    display: flex;
+}
+
+.inputField {
+    opacity: 0;
+}
 
 @media only screen and (max-width: 600px) {
     body {
@@ -52,50 +86,3 @@ body {
 
 @media only screen and (max-width: 768px) {
 }
-
-.overlay-win, .overlay-lose {
-    margin: 0;
-    position: fixed;
-    left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition-delay: 1000ms;
-    
- }
- 
- .overlay-win h2, .overlay-lose h2 {
-    font-size: 48px;
-    color: #ffffff;
- }
- 
- .overlay-win .close-win, .overlay-lose .close-lose{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 4rem;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 32px;
- }
-
- .play-again, .rematch {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 15px;
-    color: #fff;
-    background-color: purple;
-    cursor: pointer;
- }
- 
- .show-win, .show-lose {
-    display: flex;
- }
-
- .inputField {
-    opacity: 0;
- }

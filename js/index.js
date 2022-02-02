@@ -1,94 +1,79 @@
 /**
  * TODO:
  * Nedräkning på 1 min
- */
-
-
+*/
 
 let currentWord = [];
 let answerWord = [];
 let pastLetters = [];
 let lettersReset = '';
-let i;
 let guessesLeft = 5;
 
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
+const livesLeft = { 4: 'scaffold', 3: 'head', 2: 'body', 1: 'arms', 0: 'legs'};
 const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
 const playAgainBtn = document.querySelector('.play-again');
 const rematchBtn = document.querySelector('.rematch');
-const closeOverlayWin = document.querySelector('.close-win');
-const closeOverlayLose = document.querySelector('.close-lose');
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
-
-let alwaysFocusedInput = document.getElementById('activeFocus'); //Fokus på input fält
-
+//Fokus på input fält
+let alwaysFocusedInput = document.getElementById('activeFocus');
+alwaysFocusedInput.addEventListener( 'blur',() => {
+  setTimeout(() => {
+    alwaysFocusedInput.focus();
+  }, 0);
+});
 //BUTONS
 playAgainBtn.addEventListener('click', () => {location.reload()});
 rematchBtn.addEventListener('click', () => {location.reload()});
-closeOverlayWin.addEventListener('click', ()=> closeWin());
-closeOverlayLose.addEventListener('click', ()=> closeLose());
 //OVERLAY
 function closeWin() { overlayWin.classList.toggle('show-win'); }
 function closeLose() { overlayLose.classList.toggle('show-lose'); }
 
-alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
-    setTimeout(() => {
-      alwaysFocusedInput.focus();
-    }, 0);
-  });
-
-for (i = 0; i < correctAnswer.length; i++) {
+for (let i = 0; i < correctAnswer.length; i++) {
   currentWord.push('_');
 }
 document.getElementById('active-word').innerHTML = currentWord.join(' ');
 
-
 function wordLetters(letter) {
   let letterPosition = [];
-  for (i = 0; i < correctAnswer.length; i++) {
+  for (let i = 0; i < correctAnswer.length; i++) {
     if (correctAnswer[i] === letter)
       letterPosition.push(i);
-  }
-  return letterPosition;
+  } return letterPosition;
 }
 
 function lettersToGuess() {
-  let i;
   let toGuess = 0;
-  for (i in currentWord) {
+  for (let i in currentWord) {
     if (currentWord[i] === '_')
       toGuess++;
-  }
-  return toGuess;
+  } return toGuess;
 }
 
 document.querySelector('input').addEventListener('keydown', (event) => {
-    if (event.key >= 'a' && event.key <= 'z') {
-        let letter = event.key.toLowerCase();
-        let lettersGuessed = letter;
-        let i;
-        let letterPosition = wordLetters(lettersGuessed);
+  if (event.key >= 'a' && event.key <= 'z') {
+    let letter = event.key.toLowerCase();
+    let lettersGuessed = letter;
+    let letterPosition = wordLetters(lettersGuessed);
 
     if (letterPosition.length) {
-        for (i = 0; i < letterPosition.length; i++) {
-            currentWord[letterPosition[i]] = lettersGuessed;
-        }
-        
-        document.getElementById('active-word').innerHTML = currentWord.join(' ');
-    } else if (!pastLetters.includes(letter)) {
-            pastLetters.push(letter);
-            document.getElementById('letters-guessed').innerHTML += lettersGuessed + ' ';
-            guessesLeft--;
-            }
-    //YOU WIN
-    if (lettersToGuess() == 0) { overlayWin.classList.toggle('show-win'); document.querySelector('input').disabled = true; }
+      for (let i = 0; i < letterPosition.length; i++) {
+        currentWord[letterPosition[i]] = lettersGuessed;
+      } 
+      if (lettersToGuess() == 0) { overlayWin.classList.toggle('show-win'); document.querySelector('input').disabled = true; }
+      document.getElementById('active-word').innerHTML = currentWord.join(' ');
 
-    //YOU LOSE
-    if (guessesLeft == 4) { document.querySelector('figure').classList.add('scaffold'); }
-    if (guessesLeft == 3) { document.querySelector('figure').classList.add('head'); }
-    if (guessesLeft == 2) { document.querySelector('figure').classList.add('body'); }
-    if (guessesLeft == 1) { document.querySelector('figure').classList.add('arms'); }
-    if (guessesLeft === 0) { document.querySelector('figure').classList.add('legs'); overlayLose.classList.toggle('show-lose'); document.querySelector('input').disabled = true; }
-}});
+    } else if (!pastLetters.includes(letter)) {
+        pastLetters.push(letter);
+        document.getElementById('letters-guessed').innerHTML += lettersGuessed + ' ';
+        guessesLeft--;
+        document.querySelector('figure').classList.add(livesLeft[guessesLeft]);
+        if (guessesLeft === 0) {
+          overlayLose.classList.toggle('show-lose');
+          document.querySelector('input').disabled = true;
+        }
+    }
+  }
+});
