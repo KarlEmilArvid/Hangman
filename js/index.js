@@ -1,8 +1,5 @@
 /**
  * TODO:
- *
- * När guesses left === 0, stäng av keyboard event
- * När lettersToGuess() == 0, stäng av keyboard event
  * Nedräkning på 1 min
  */
 
