@@ -27,7 +27,7 @@ const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
 const playAgainBtn = document.querySelector('.play-again');
-const rematchBtn = document.querySelector('.play-again');
+const rematchBtn = document.querySelector('.rematch');
 const closeOverlayWin = document.querySelector('.close-win');
 const closeOverlayLose = document.querySelector('.close-lose');
 
@@ -40,6 +40,7 @@ let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på i
 // rematchBtn.addEventListener('click', () => {location.reload()});
 
 playAgainBtn.addEventListener('click', () => {location.reload()});
+rematchBtn.addEventListener('click', () => {location.reload()});
 closeOverlayWin.addEventListener('click', ()=> closeWin());
 closeOverlayLose.addEventListener('click', ()=> closeLose());
 
