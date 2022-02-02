@@ -34,7 +34,7 @@ document.getElementById("guesses-remain").innerHTML = guessesLeft;
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
-const playAgainBtn = document.querySelector('.reset-button');
+let playAgainBtn = document.querySelectorAll('.reset-button');
 const closeOverlayWin = document.querySelector('.close-win');
 const closeOverlayLose = document.querySelector('.close-lose');
 
@@ -43,7 +43,7 @@ let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på input fält
 
 //BUTONS
-playAgainBtn.addEventListener('click', () => {location.reload()});
+playAgainBtn = addEventListener('click', () => {location.reload()});
 closeOverlayWin.addEventListener('click', ()=> closeWin());
 closeOverlayLose.addEventListener('click', ()=> closeLose());
 
