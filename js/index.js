@@ -11,16 +11,12 @@
 
 
 
-
-
-
 let currentWord = [];
 let answerWord = [];
 let pastLetters = [];
 let lettersReset = '';
 let i;
 let guessesLeft = 5;
-
 
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const overlayWin = document.querySelector('.overlay-win');
@@ -32,7 +28,7 @@ const closeOverlayLose = document.querySelector('.close-lose');
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
-let alwaysFocusedInput = document.getElementById( 'activeFocus' ); //Fokus på input fält
+let alwaysFocusedInput = document.getElementById('activeFocus'); //Fokus på input fält
 
 //BUTONS
 // playAgainBtn.addEventListener('click', () => {location.reload()});
@@ -94,10 +90,10 @@ document.querySelector('input').addEventListener('keydown', (event) => {
             currentWord[letterPosition[i]] = lettersGuessed;
         }
         
-        document.getElementById("active-word").innerHTML = currentWord.join(" ");
+        document.getElementById('active-word').innerHTML = currentWord.join(' ');
     } else if (!pastLetters.includes(letter)) {
             pastLetters.push(letter);
-            document.getElementById("letters-guessed").innerHTML += lettersGuessed + " ";
+            document.getElementById('letters-guessed').innerHTML += lettersGuessed + ' ';
             guessesLeft--;
             }
     //YOU WIN
