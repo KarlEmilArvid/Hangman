@@ -1,7 +1,7 @@
 /**
  * TODO:
  *
- * Gömma input fält
+ *
  * 
  * 
  * Nedräkning på 1 min
