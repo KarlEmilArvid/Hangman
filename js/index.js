@@ -28,7 +28,7 @@ let pastLetters = [];
 let lettersReset = '';
 let i;
 let guessesLeft = 5;
-document.getElementById("guesses-remain").innerHTML = guessesLeft;
+document.getElementById('guesses-remain').innerHTML = guessesLeft;
 
 
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
@@ -65,9 +65,9 @@ alwaysFocusedInput.addEventListener( 'blur',() => { //Fokus på input fält
 
 
 for (i = 0; i < correctAnswer.length; i++) {
-  currentWord.push("_");
+  currentWord.push('_');
 }
-document.getElementById("active-word").innerHTML = currentWord.join(" ");
+document.getElementById('active-word').innerHTML = currentWord.join(" ");
 
 
 function wordLetters(letter) {
@@ -83,7 +83,7 @@ function lettersToGuess() {
   let i;
   let toGuess = 0;
   for (i in currentWord) {
-    if (currentWord[i] === "_")
+    if (currentWord[i] === '_')
       toGuess++;
   }
   return toGuess;
@@ -100,13 +100,13 @@ document.querySelector('input').addEventListener('keydown', (event) => {
       for (i = 0; i < letterPosition.length; i++) {
         currentWord[letterPosition[i]] = lettersGuessed;
       }
-      document.getElementById("active-word").innerHTML = currentWord.join(" ");
+      document.getElementById('active-word').innerHTML = currentWord.join(' ');
     } else {
       if (!pastLetters.includes(letter)) {
         pastLetters.push(letter);
-        document.getElementById("letters-guessed").innerHTML += lettersGuessed + " ";
+        document.getElementById('letters-guessed').innerHTML += lettersGuessed + ' ';
         guessesLeft--;
-        document.getElementById("guesses-remain").innerHTML = guessesLeft;
+        document.getElementById('guesses-remain').innerHTML = guessesLeft;
       }
     }
 
