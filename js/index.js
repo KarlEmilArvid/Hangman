@@ -8,7 +8,8 @@ let answerWord = [];
 let pastLetters = [];
 let lettersReset = '';
 let guessesLeft = 5;
-let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
+let seconds = 1000 * 60;
+let secondsLeft = "60"
 
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const livesLeft = { 4: 'scaffold', 3: 'head', 2: 'body', 1: 'arms', 0: 'legs'};
@@ -17,7 +18,9 @@ const overlayLose = document.querySelector('.overlay-lose');
 const playAgainBtn = document.querySelector('#play-again');
 const rematchBtn = document.querySelector('#rematch');
 const timerBtn = document.querySelector('#timer-button');
+const startGame = document.querySelector('start-game');
 
+let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 //Fokus på input fält
 let alwaysFocusedInput = document.getElementById('activeFocus');
 alwaysFocusedInput.addEventListener( 'blur',() => {
@@ -31,17 +34,22 @@ playAgainBtn.addEventListener('click', () => {location.reload()});
 rematchBtn.addEventListener('click', () => {location.reload()});
 startGameBtn.addEventListener('click', ()=> {startTimer()});
 
-//OVERLAY
+//TIMER
 function startTimer() {
-    document.querySelector('.start-game').innerHTML = seconds;
+    startGame.classList.toggle('hide')
+    document.querySelector('.time-left').innerHTML = seconds;
         if(seconds >= 0) {
             seconds = seconds--;
+            if(seconds >= 0) {
+                secondsLeft--;
+            }
         } else {
             clearInterval('timer');
             overlayLose.classList.toggle('show');
             document.querySelector('input').disabled = true;
         }
 }
+//OVERLAY
 function closeWin() { overlayWin.classList.toggle('show-win'); }
 function closeLose() { overlayLose.classList.toggle('show-lose'); }
 
