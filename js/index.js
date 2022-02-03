@@ -13,16 +13,17 @@ let lettersReset = '';
 let i;
 let guessesLeft = 5;
 let seconds = 1000 * 60;
-
+let timeLeft;
 
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
-const playAgainBtn = document.querySelector('.play-again');
-const rematchBtn = document.querySelector('.rematch');
-const closeOverlayWin = document.querySelector('.close-win');
-const closeOverlayLose = document.querySelector('.close-lose');
-const startGameBtn = document.querySelector('.start-game');
+const playAgainBtn = document.querySelector('#play-again');
+const rematchBtn = document.querySelector('#rematch');
+const timerBtn = document.querySelector('#timer-button');
+const startGame = document.querySelector('.start-game');
+const timeGameBtn = document.querySelector('#timer-button');
+const guessGameBtn = document.querySelector('#count-tries');
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
 
@@ -31,20 +32,24 @@ let alwaysFocusedInput = document.getElementById('activeFocus'); //Fokus på inp
 //BUTTONS
 playAgainBtn.addEventListener('click', () => {location.reload()});
 rematchBtn.addEventListener('click', () => {location.reload()});
-closeOverlayWin.addEventListener('click', ()=> closeWin());
-closeOverlayLose.addEventListener('click', ()=> closeLose());
-startGameBtn.addEventListener('click', ()=> {startTimer()});
+timeGameBtn.addEventListener('click', ()=> {startTimer()})
 
 function startTimer() {
-    document.querySelector('.start-game').innerHTML = seconds;
-        if(seconds >= 0) {
-            seconds = seconds--;
-        } else {
-            clearInterval('timer');
-            overlayLose.classList.toggle('show');
-            document.querySelector('input').disabled = true;
-        }
+    startGame.classList.toggle('hide');
+    if(seconds == 60000) {
+        timer = setInterval(() => {
+            startTimer
+        }, 1000);
+    }
+    seconds -= 1000;
+    if(seconds == 0) {
+        clearInterval(timer);
+        overlayLose.classList.toggle('show-lose');
+    }
 }
+document.querySelector('.time-left').innerHTML = "0:" + seconds/1000;
+
+
 
 //OVERLAY
 function closeWin() { overlayWin.classList.toggle('show-win'); }

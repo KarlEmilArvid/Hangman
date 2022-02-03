@@ -28,6 +28,10 @@ body {
     color: #f7f4fc;
 }
 
+.hide {
+    display: none;
+}
+
 .start-game h2 {
     
 }
