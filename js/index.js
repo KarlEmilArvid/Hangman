@@ -38,25 +38,20 @@ let time = startingSeconds * 1;
 
 const countdownEl = document.getElementById('time-left')
 
-setInterval(updateCountdown, 1000);
-
-function updateCountdown() {
+const updateCountdown = () => {
   let seconds = time % 60;
 
-  //seconds = seconds < 60 ? + seconds : seconds;
-  countdownEl.innerHTML = `${'Time left:'}${seconds}`
-  if(seconds >= 0) {
-    seconds = time--;
-    if(seconds < 1) {
-      clearInterval(setInterval);
-      overlayLose.classList.toggle('show-lose');
-      document.querySelector('input').disabled = true;
-    }
+  countdownEl.innerHTML = 'Time left: ' + seconds;
+
+  if (seconds < 1) {
+    overlayLose.classList.toggle('show-lose');
+    clearInterval(Interval);
+    document.querySelector('input').disabled = true;
   }
+  seconds = time--;
 };
 
-function closeWin() { overlayWin.classList.toggle('show-win'); }
-function closeLose() { overlayLose.classList.toggle('show-lose'); }
+const Interval= setInterval (updateCountdown, 1000);
 
 for (let i = 0; i < correctAnswer.length; i++) {
   currentWord.push('_');
@@ -89,7 +84,10 @@ document.querySelector('input').addEventListener('keydown', (event) => {
       for (let i = 0; i < letterPosition.length; i++) {
         currentWord[letterPosition[i]] = lettersGuessed;
       } 
-      if (lettersToGuess() == 0) { overlayWin.classList.toggle('show-win'); document.querySelector('input').disabled = true; }
+      if (lettersToGuess() == 0) {
+      overlayWin.classList.toggle('show-win');
+      clearInterval(Interval);
+      document.querySelector('input').disabled = true; }
       document.getElementById('active-word').innerHTML = currentWord.join(' ');
 
     } else if (!pastLetters.includes(letter)) {
@@ -99,6 +97,7 @@ document.querySelector('input').addEventListener('keydown', (event) => {
         document.querySelector('figure').classList.add(livesLeft[guessesLeft]);
         if (guessesLeft === 0) {
           overlayLose.classList.toggle('show-lose');
+          clearInterval(Interval);
           document.querySelector('input').disabled = true;
         }
     }
