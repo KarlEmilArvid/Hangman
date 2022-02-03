@@ -13,6 +13,38 @@ body {
     background-color: #f7f4fc;
 }
 
+.hide {
+    display: none;
+}
+
+.start-game {
+    margin: 0;
+    position: fixed;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #f7f4fc;
+}
+
+.start-game h2 {
+    
+}
+.start-game p {
+    font-family: monospace;
+}
+
+.start-buttons {
+    display: flex;
+    align-items: center;
+    
+}
+
 .section {
     display: flex;
     justify-content: center;
@@ -51,12 +83,12 @@ body {
     transition-delay: 1000ms;
 }
 
-.header {
+.heading {
     font-size: 48px;
     color: #ffffff;
 }
 
-.play-again, .rematch {
+.game-button {
     padding: 1rem 2rem;
     border: none;
     border-radius: 15px;
