@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <section class="start-game">
+        <h2>Let's play hangman!</h2>
+        <p>Game preferences:</p>
+        <article class="start-buttons">
+            <button class="timer-button">In 1 minute?</button>
+            <p>OR</p>
+            <button class="count-tries">In 5 guesses?</button>
+        </article>
+    </section>
     <main class="wrapper">
         <figure>
             <svg width="501" height="565" viewBox="0 0 501 565" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +28,7 @@
             </svg>
         </figure>
         <section class="section">
+            <p id="timer"></p>
             <p>Current Word: </p><br />
             <input autofocus autocomplete="off" id="activeFocus" class="inputField"><span id="active-word"></span></input>
             <p>Letters guessed: </p><br />
@@ -26,12 +36,12 @@
         </section>
 
         <section class="overlay-win">
-            <h2 class="header">You won!</h2>
+            <h2 class="heading">You won!</h2>
             <button class="play-again">Play again?</button>
         </section>
         
         <section class="overlay-lose">
-            <h2 class="header">You lose!</h2>
+            <h2 class="heading">You lose!</h2>
             <button class="rematch">Rematch?</button>
         </section>
     </main>
