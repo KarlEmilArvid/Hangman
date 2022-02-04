@@ -33,7 +33,7 @@ playAgainBtn.addEventListener('click', () => {location.reload()});
 rematchBtn.addEventListener('click', () => {location.reload()});
 
 //TIMER
-const startingSeconds = 5;
+const startingSeconds = 12;
 let time = startingSeconds * 1;
 
 const countdownEl = document.getElementById('time-left')
@@ -42,8 +42,21 @@ const updateCountdown = () => {
   let seconds = time % 60;
 
   countdownEl.innerHTML = 'Time left: ' + seconds;
-
+  if (seconds < 11) {countdownEl.style.color ="red"};
+  if (seconds < 5) {
+    document.querySelector('figure').classList.add(livesLeft[time]);
+  }
+  if (seconds < 4) {
+    document.querySelector('figure').classList.add(livesLeft[time]);
+  }
+  if (seconds < 3) {
+    document.querySelector('figure').classList.add(livesLeft[time]);
+  }
+  if (seconds < 2) {
+    document.querySelector('figure').classList.add(livesLeft[time]);
+  }
   if (seconds < 1) {
+    document.querySelector('figure').classList.add(livesLeft[time]);
     overlayLose.classList.toggle('show-lose');
     clearInterval(Interval);
     document.querySelector('input').disabled = true;

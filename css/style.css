@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Eater&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
     box-sizing: border-box;
@@ -17,6 +18,11 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+.section p, .section input[type="text"], .section span {
+    font-family: 'Amatic SC';
+    font-weight: 700;
+    font-size: 2rem;
 }
 
 .wrapper {
@@ -49,20 +55,34 @@ body {
     align-items: center;
     justify-content: center;
     transition-delay: 1000ms;
+    /* font-family: 'Press Start 2P'; */
 }
 
 .heading {
     font-size: 48px;
-    color: #ffffff;
+    color: #e6e211;
+    font-family: 'Press Start 2P';
+    margin: 1rem;
 }
 
 .game-button {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 15px;
     color: #fff;
-    background-color: purple;
     cursor: pointer;
+    background-color: rgb(160, 167, 142);
+    font-size: 1rem;
+}
+.overlay-win .game-button {
+    padding: 1rem 2rem;
+    font-family: 'Press Start 2P';
+    background-color: rgb(87, 206, 76);
+    color: #e6e211;
+    border: .5rem outset rgb(168, 158, 158);
+}
+.overlay-lose .game-button {
+    padding: 1rem 2rem;
+    font-family: 'Press Start 2P';
+    border: .5rem outset rgb(168, 158, 158);
+    color: #333
 }
 
 .show-win, .show-lose {
