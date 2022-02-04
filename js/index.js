@@ -1,14 +1,8 @@
-/**
- * TODO:
- * Nedräkning på 1 min
-*/
-
 let currentWord = [];
 let answerWord = [];
 let pastLetters = [];
 let lettersReset = '';
 let guessesLeft = 5;
-
 
 const wordArray = ['dog', 'apple', 'laptop', 'croiassant'];
 const livesLeft = { 4: 'scaffold', 3: 'head', 2: 'body', 1: 'arms', 0: 'legs'};
@@ -33,7 +27,7 @@ playAgainBtn.addEventListener('click', () => {location.reload()});
 rematchBtn.addEventListener('click', () => {location.reload()});
 
 //TIMER
-const startingSeconds = 12;
+const startingSeconds = 59;
 let time = startingSeconds * 1;
 
 const countdownEl = document.getElementById('time-left')
@@ -43,20 +37,7 @@ const updateCountdown = () => {
 
   countdownEl.innerHTML = 'Time left: ' + seconds;
   if (seconds < 11) {countdownEl.style.color ="red"};
-  if (seconds < 5) {
-    document.querySelector('figure').classList.add(livesLeft[time]);
-  }
-  if (seconds < 4) {
-    document.querySelector('figure').classList.add(livesLeft[time]);
-  }
-  if (seconds < 3) {
-    document.querySelector('figure').classList.add(livesLeft[time]);
-  }
-  if (seconds < 2) {
-    document.querySelector('figure').classList.add(livesLeft[time]);
-  }
   if (seconds < 1) {
-    document.querySelector('figure').classList.add(livesLeft[time]);
     overlayLose.classList.toggle('show-lose');
     clearInterval(Interval);
     document.querySelector('input').disabled = true;
