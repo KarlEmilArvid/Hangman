@@ -33,7 +33,7 @@ playAgainBtn.addEventListener('click', () => {location.reload()});
 rematchBtn.addEventListener('click', () => {location.reload()});
 
 //TIMER
-const startingSeconds = 5;
+const startingSeconds = 59;
 let time = startingSeconds * 1;
 
 const countdownEl = document.getElementById('time-left')
