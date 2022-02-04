@@ -39,6 +39,7 @@ const updateCountdown = () => {
   if (seconds < 11) {countdownEl.style.color ="red"};
   if (seconds < 1) {
     overlayLose.classList.toggle('show-lose');
+    document.querySelector('.correct-word').innerHTML = `Correct word was ${correctAnswer}`;
     clearInterval(Interval);
     document.querySelector('input').disabled = true;
   }

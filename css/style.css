@@ -19,10 +19,14 @@ body {
     justify-content: center;
     flex-direction: column;
 }
-.section p, .section input[type="text"], .section span {
+.section p, .section input[type="text"], .section span, .correct-word {
     font-family: 'Amatic SC';
     font-weight: 700;
     font-size: 2rem;
+}
+
+.correct-word {
+    color: green;
 }
 
 .wrapper {
@@ -60,7 +64,6 @@ p {
     align-items: center;
     justify-content: center;
     transition-delay: 1000ms;
-    /* font-family: 'Press Start 2P'; */
 }
 
 .heading {
