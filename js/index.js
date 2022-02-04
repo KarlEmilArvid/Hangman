@@ -10,9 +10,9 @@ const overlayWin = document.querySelector('.overlay-win');
 const overlayLose = document.querySelector('.overlay-lose');
 const playAgainBtn = document.querySelector('#play-again');
 const rematchBtn = document.querySelector('#rematch');
-const timerBtn = document.querySelector('#timer-button');
 
 let correctAnswer = wordArray[Math.floor(Math.random() * wordArray.length)];
+document.querySelector('.correct-word').innerHTML = `Correct word was ${correctAnswer}`;
 
 //Fokus på input fält
 let alwaysFocusedInput = document.getElementById('activeFocus');
@@ -30,7 +30,7 @@ rematchBtn.addEventListener('click', () => {location.reload()});
 const startingSeconds = 59;
 let time = startingSeconds * 1;
 
-const countdownEl = document.getElementById('time-left')
+const countdownEl = document.getElementById('time-left');
 
 const updateCountdown = () => {
   let seconds = time % 60;
@@ -39,7 +39,6 @@ const updateCountdown = () => {
   if (seconds < 11) {countdownEl.style.color ="red"};
   if (seconds < 1) {
     overlayLose.classList.toggle('show-lose');
-    document.querySelector('.correct-word').innerHTML = `Correct word was ${correctAnswer}`;
     clearInterval(Interval);
     document.querySelector('input').disabled = true;
   }
@@ -50,7 +49,8 @@ const Interval= setInterval (updateCountdown, 1000);
 
 for (let i = 0; i < correctAnswer.length; i++) {
   currentWord.push('_');
-}
+};
+
 document.getElementById('active-word').innerHTML = currentWord.join(' ');
 
 function wordLetters(letter) {
@@ -59,7 +59,7 @@ function wordLetters(letter) {
     if (correctAnswer[i] === letter)
       letterPosition.push(i);
   } return letterPosition;
-}
+};
 
 function lettersToGuess() {
   let toGuess = 0;
@@ -67,7 +67,7 @@ function lettersToGuess() {
     if (currentWord[i] === '_')
       toGuess++;
   } return toGuess;
-}
+};
 
 document.querySelector('input').addEventListener('keydown', (event) => {
   if (event.key >= 'a' && event.key <= 'z') {

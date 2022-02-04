@@ -19,6 +19,7 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+
 .section p, .section input[type="text"], .section span, .correct-word {
     font-family: 'Amatic SC';
     font-weight: 700;
@@ -79,6 +80,7 @@ p {
     background-color: rgb(160, 167, 142);
     font-size: 1rem;
 }
+
 .overlay-win .game-button {
     padding: 1rem 2rem;
     font-family: 'Press Start 2P';
@@ -86,6 +88,7 @@ p {
     color: #e6e211;
     border: .5rem outset rgb(168, 158, 158);
 }
+
 .overlay-lose .game-button {
     padding: 1rem 2rem;
     font-family: 'Press Start 2P';
